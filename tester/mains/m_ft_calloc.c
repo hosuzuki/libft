@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
+/*   By: jtoty <jtoty@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/16 18:03:49 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/10/22 06:19:20 by hokutosuz        ###   ########.fr       */
+/*   Created: 2019/11/20 11:59:07 by jtoty             #+#    #+#             */
+/*   Updated: 2019/11/20 15:38:38 by jtoty            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+#include <unistd.h>
 #include "libft.h"
 
-int	ft_lstsize(t_list	*lst)
+int		main(int argc, const char *argv[])
 {
-	int		i;
+	char	*str;
 
-	if (!lst)
+	alarm(5);
+	if (argc == 1)
 		return (0);
-	i = 1;
-	while (lst->next)
+	else if (atoi(argv[1]) == 1)
 	{
-		lst = lst->next;
-		i++;
+		str = (char *)ft_calloc(30, sizeof(char));
+		if (!str)
+			write(1, "NULL", 4);
+		else
+			write(1, str, 30);
+		free(str);
 	}
-	return (i);
+	return (0);
 }
