@@ -6,7 +6,7 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:52 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/10/19 10:10:20 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/11/02 17:41:20 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strrchr(const char *s, int c)
 	int		i;
 
 	p = (char *)s;
-	p2 = 0;
+	p2 = NULL;
 	i = 0;
 	while (p[i])
 	{

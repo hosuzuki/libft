@@ -6,28 +6,28 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:51 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/10/16 18:03:51 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/10/26 12:50:59 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_strcmp(char	*s1, char	*s2)
 {
-	int	number;
+	int	i;
 
-	number = 0;
-	while (s1[number] != '\0' || s2[number] != '\0')
+	i = 0;
+	while (s1[i] != '\0' || s2[i] != '\0')
 	{
-		if (s1[number] < s2[number])
-			return ((unsigned)s1[number] - (unsigned)s2[number]);
-		else if (s1[number] > s2[number])
-			return ((unsigned)s1[number] - (unsigned)s2[number]);
+		if (s1[i] < s2[i])
+			return ((unsigned)s1[i] - (unsigned)s2[i]);
+		else if (s1[i] > s2[i])
+			return ((unsigned)s1[i] - (unsigned)s2[i]);
 		else
-			number++;
+			i++;
 	}
-	if (s1[number] == '\0' && s2[number] == '\0')
+	if (s1[i] == '\0' && s2[i] == '\0')
 		return (0);
-	else if (s1[number] == '\0')
-		return (-(unsigned)s2[number]);
+	else if (s1[i] == '\0')
+		return (-(unsigned)s2[i]);
 	else
-		return ((unsigned)s1[number]);
+		return ((unsigned)s1[i]);
 }

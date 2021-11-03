@@ -6,7 +6,7 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:50 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/10/20 20:04:34 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/11/01 17:50:41 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,9 @@ char	**ft_split(const char *s, char c)
 		return (NULL);
 	i = 0;
 	if (cut_str(res, s, c, i) == 0)
+	{
+		free(res);
 		return (NULL);
+	}
 	return (res);
 }

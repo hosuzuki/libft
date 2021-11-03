@@ -6,7 +6,7 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:48 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/10/18 12:35:18 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/10/26 12:45:51 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	nbr(char *res, int n, int *i)
 	if (n == -2147483648)
 	{
 		nbr(res, n / 10, i);
-		res[(*i)++] = '0' + 8;
+		res[(*i)++] = '8';
 	}
 	else if (n < 0)
 	{

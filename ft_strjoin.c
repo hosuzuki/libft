@@ -6,7 +6,7 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:51 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/10/16 18:03:51 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/11/02 11:41:45 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 static char	*ft_strcpy(char	*dest, const char	*src)
 {
-	int	number;
+	int i;
 
-	number = 0;
-	while (src[number] != '\0')
+	i = 0;
+	while (src[i] != '\0')
 	{
-		dest[number] = src[number];
-		number++;
+		dest[i] = src[i];
+		i++;
 	}
-	dest[number] = '\0';
+	dest[i] = '\0';
 	return (dest);
 }
 

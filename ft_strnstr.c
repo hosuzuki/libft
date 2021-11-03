@@ -6,7 +6,7 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:52 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/10/16 18:03:52 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/11/02 17:27:46 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ char	*ft_strnstr(const char	*haystack, const char	*needle, size_t	len)
 		}
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
