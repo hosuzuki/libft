@@ -6,7 +6,7 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:49 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/10/22 06:17:55 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/11/05 11:22:00 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstadd_back(t_list	**lst, t_list	*new)
 {
 	t_list	*tmp;
 
-	if (lst != NULL && new != NULL)
+	if (lst && new)
 	{
 		tmp = *lst;
 		if (*lst)

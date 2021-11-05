@@ -6,7 +6,7 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:49 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/10/22 06:19:20 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/11/04 21:35:55 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_lstsize(t_list	*lst)
 {
-	int		i;
+	int	i;
 
 	if (!lst)
 		return (0);

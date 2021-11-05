@@ -6,21 +6,21 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:52 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/10/20 20:02:40 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/11/04 17:39:15 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_match(char c, const char *set)
+static bool	ft_match(char c, const char *set)
 {
 	size_t	i;
 
 	i = 0;
 	while (set[i])
 		if (set[i++] == c)
-			return (1);
-	return (0);
+			return (true);
+	return (false);
 }
 
 static char	*ft_trim(const char *s1, const char *set, size_t len, size_t i)

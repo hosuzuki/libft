@@ -6,7 +6,7 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:48 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/10/16 18:03:48 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/11/04 12:50:44 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	*ft_calloc(size_t	count, size_t	size)
 	if (m == NULL)
 		return (NULL);
 	i = 0;
-	while (i < count * size)
-		m[i++] = 0;
+	ft_bzero(m, count * size);
 	return (m);
 }

@@ -6,7 +6,7 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:51 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/11/02 16:29:57 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/11/04 12:45:47 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_strncmp(const char	*s1, const char	*s2, size_t	n)
 {
-	unsigned int	i;
+	size_t	i;
 
 	i = 0;
 	if (n == 0)

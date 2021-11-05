@@ -6,7 +6,7 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:49 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/10/22 06:18:38 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/11/05 11:31:16 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void*))
 {
-	if (lst != NULL || (*f) != NULL)
+	if (lst && f)
 	{
-		while (lst != NULL)
+		while (lst)
 		{
-			(*f)(lst->content);
+			f(lst->content);
 			lst = lst->next;
 		}
 	}

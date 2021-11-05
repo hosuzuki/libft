@@ -6,7 +6,7 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:51 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/10/20 20:00:50 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/11/04 17:30:25 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	unsigned int	i;
-	char			*str;
+	size_t	i;
+	char	*str;
 
 	i = 0;
 	if (s == NULL || (*f) == NULL)

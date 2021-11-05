@@ -6,7 +6,7 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:49 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/10/16 18:03:49 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/11/05 12:06:22 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ int	ft_memcmp(const void	*s1, const void	*s2, size_t	n)
 	while (i < n)
 	{
 		if (str1[i] != str2[i])
-			return (str1[i] - str2[i]);
+		{
+			if (str1[i] > str2[i])
+				return (str1[i] - str2[i]);
+		}
 		i++;
 	}
 	return (0);

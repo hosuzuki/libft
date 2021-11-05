@@ -6,75 +6,66 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:50 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/11/01 17:50:41 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/11/04 20:49:00 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	sep_ck(const char str, char c)
+static bool	sep_ck(const char str, char c)
 {
 	if (str == c || str == '\0')
-		return (1);
-	return (0);
+		return (true);
+	return (false);
 }
 
-static void	cpy_word(char *res, const char *str, char c)
+static bool	make_malloc(char **res, size_t j, size_t w)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (sep_ck(str[i], c) == 0)
-	{
-		res[i] = str[i];
-		i++;
-	}
-	res[i] = '\0';
-}
-
-static int	make_malloc(char **res, int j, int w)
-{
 	res[w] = (char *)malloc(sizeof(char) * (j + 1));
 	if (res[w] == NULL)
 	{
-		while (w >= 0)
-			free(res[w--]);
-		return (0);
+		while (i < w)
+			free(res[i++]);
+		free(res);
+		return (false);
 	}
-	return (1);
+	return (true);
 }
 
-static int	cut_str(char **res, const char *str, char c, int i)
+static bool	cut_str(char **res, const char *str, char c, size_t i)
 {
-	int	j;
-	int	w;
+	size_t	j;
+	size_t	w;
 
 	w = 0;
 	while (str[i] != '\0')
 	{
-		if (sep_ck(str[i], c) == 1)
+		if (sep_ck(str[i], c))
 			i++;
 		else
 		{
 			j = 0;
-			while (sep_ck(str[i + j], c) == 0)
+			while (!sep_ck(str[i + j], c))
 				j++;
-			if (make_malloc(res, j, w) == 0)
-				return (0);
-			cpy_word(res[w], str + i, c);
+			if (!make_malloc(res, j, w))
+				return (false);
+			ft_strlcpy(res[w], &str[i], j + 1);
 			i += j;
 			w++;
 		}
 	}
 	res[w] = NULL;
-	return (1);
+	return (true);
 }
 
 char	**ft_split(const char *s, char c)
 {
 	char	**res;
-	int		w;
-	int		i;
+	size_t	w;
+	size_t	i;
 
 	i = 0;
 	w = 0;
@@ -82,7 +73,7 @@ char	**ft_split(const char *s, char c)
 		return (NULL);
 	while (s[i] != '\0')
 	{
-		if (sep_ck(s[i + 1], c) == 1 && sep_ck(s[i], c) == 0)
+		if (sep_ck(s[i + 1], c) && !sep_ck(s[i], c))
 			w++;
 		i++;
 	}
@@ -90,10 +81,7 @@ char	**ft_split(const char *s, char c)
 	if (res == NULL)
 		return (NULL);
 	i = 0;
-	if (cut_str(res, s, c, i) == 0)
-	{
-		free(res);
+	if (!cut_str(res, s, c, i))
 		return (NULL);
-	}
 	return (res);
 }

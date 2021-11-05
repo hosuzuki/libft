@@ -6,7 +6,7 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:51 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/11/03 14:46:11 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/11/05 11:44:53 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static char	*ft_strcpy(char	*dest, const char	*src)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (src[i] != '\0')
@@ -28,8 +28,8 @@ static char	*ft_strcpy(char	*dest, const char	*src)
 
 static char	*ft_strcat(char	*dest, const char	*src)
 {
-	long long	i;
-	long long	d_i;
+	size_t	i;
+	size_t	d_i;
 
 	i = 0;
 	d_i = 0;
@@ -47,8 +47,8 @@ static char	*ft_strcat(char	*dest, const char	*src)
 
 char	*ft_strjoin(char const	*s1, char const	*s2)
 {
-	char		*d;
-	size_t		size;
+	char	*d;
+	size_t	size;
 
 	d = NULL;
 	if (!s1 && !s2)

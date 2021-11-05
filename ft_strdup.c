@@ -6,7 +6,7 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:51 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/11/03 14:45:29 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/11/04 12:46:51 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strdup(const char	*s1)
 {
-	int		i;
+	size_t	i;
 	char	*dst;
 
 	i = 0;
