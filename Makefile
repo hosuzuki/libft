@@ -50,7 +50,7 @@ BONUS = ft_lstnew.c \
 OBJ = $(SRC:.c=.o)
 BONUS_OBJ = $(BONUS:.c=.o)
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra -c
+CFLAGS = -Wall -Werror -Wextra
 ARC = ar rc
 RAN = ranlib
 RM = rm -f
