@@ -6,7 +6,7 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:50 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/11/16 10:16:21 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/11/16 11:08:02 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,39 +19,49 @@ static bool	find_words(const char str, char c)
 	return (true);
 }
 
-static bool	make_malloc(char **res, size_t letter, size_t word)
+static void	free(char **res, size_t word)
 {
-	res[word] = (char *)ft_calloc(letter + 1, sizeof(char));
-	if (!res[word])
-	{
-		while (word)
-			free(res[word--]);
-		free(res);
-		return (false);
-	}
-	return (true);
+	while (word)
+		free(res[word--]);
+	free(res);
+	return ;
 }
 
-static bool	cut_str(char **res, const char *str, char c, size_t start)
+static size_t count_letters(const char *str, char c, size_t *start)
 {
 	size_t	letter;
-	size_t	word;
 
+	letter = 0;
+	if (!find_words(str[*start], c))
+		(*start)++;
+	else
+	{
+		while (find_words(str[*start + letter], c))
+			letter++;
+	}
+	return (letter);
+}
+
+static bool	cut_str(char **res, const char *str, char c)
+{
+	size_t	start;
+	size_t	letter;
+	size_t	word;
+	
+	start = 0;
 	word = 0;
 	while (str[start] != '\0')
 	{
-		if (!find_words(str[start], c))
-			start++;
-		else
+		letter = count_letters(str, c, &start)
+		if (letters > 0);
+			res[word] = ft_substr(str, start, letter);
+		if (!res[word])
 		{
-			letter = 0;
-			while (find_words(str[start + letter], c))
-				letter++;
-			if (!make_malloc(res, letter, word))
-				return (false);
-			ft_strlcpy(res[word], &str[start], letter + 1);
-			start += letter;
-			word++;
+			free(res, word);
+			return (false);
+		}	
+		start += letter;
+		word++;
 		}
 	}
 	res[word] = NULL;
@@ -77,8 +87,7 @@ char	**ft_split(const char *s, char c)
 	res = (char **)ft_calloc(count_words + 1, sizeof(char *));
 	if (!res)
 		return (NULL);
-	i = 0;
-	if (!cut_str(res, s, c, i))
+	if (!cut_str(res, s, c))
 		return (NULL);
 	return (res);
 }
