@@ -6,79 +6,76 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:50 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/11/04 20:49:00 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/11/16 10:16:21 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static bool	sep_ck(const char str, char c)
+static bool	find_words(const char str, char c)
 {
 	if (str == c || str == '\0')
-		return (true);
-	return (false);
+		return (false);
+	return (true);
 }
 
-static bool	make_malloc(char **res, size_t j, size_t w)
+static bool	make_malloc(char **res, size_t letter, size_t word)
 {
-	size_t	i;
-
-	i = 0;
-	res[w] = (char *)malloc(sizeof(char) * (j + 1));
-	if (res[w] == NULL)
+	res[word] = (char *)ft_calloc(letter + 1, sizeof(char));
+	if (!res[word])
 	{
-		while (i < w)
-			free(res[i++]);
+		while (word)
+			free(res[word--]);
 		free(res);
 		return (false);
 	}
 	return (true);
 }
 
-static bool	cut_str(char **res, const char *str, char c, size_t i)
+static bool	cut_str(char **res, const char *str, char c, size_t start)
 {
-	size_t	j;
-	size_t	w;
+	size_t	letter;
+	size_t	word;
 
-	w = 0;
-	while (str[i] != '\0')
+	word = 0;
+	while (str[start] != '\0')
 	{
-		if (sep_ck(str[i], c))
-			i++;
+		if (!find_words(str[start], c))
+			start++;
 		else
 		{
-			j = 0;
-			while (!sep_ck(str[i + j], c))
-				j++;
-			if (!make_malloc(res, j, w))
+			letter = 0;
+			while (find_words(str[start + letter], c))
+				letter++;
+			if (!make_malloc(res, letter, word))
 				return (false);
-			ft_strlcpy(res[w], &str[i], j + 1);
-			i += j;
-			w++;
+			ft_strlcpy(res[word], &str[start], letter + 1);
+			start += letter;
+			word++;
 		}
 	}
-	res[w] = NULL;
+	res[word] = NULL;
 	return (true);
 }
 
 char	**ft_split(const char *s, char c)
 {
 	char	**res;
-	size_t	w;
+	size_t	count_words;
 	size_t	i;
 
+	count_words = 0;
 	i = 0;
-	w = 0;
-	if (s == NULL)
+	if (!s)
 		return (NULL);
 	while (s[i] != '\0')
 	{
-		if (sep_ck(s[i + 1], c) && !sep_ck(s[i], c))
-			w++;
+		if (find_words(s[i], c) && !find_words(s[i + 1], c))
+			count_words++;
 		i++;
 	}
-	res = (char **)malloc(sizeof(char *) * (w + 1));
-	if (res == NULL)
+	res = (char **)ft_calloc(count_words + 1, sizeof(char *));
+	if (!res)
 		return (NULL);
 	i = 0;
 	if (!cut_str(res, s, c, i))
