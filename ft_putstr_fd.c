@@ -6,7 +6,7 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:50 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/11/04 14:49:54 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/11/15 20:35:25 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	ft_putstr_fd(char *c, int fd)
 {
 	size_t	len;
 
-	if (c == NULL)
-		return ((void) NULL);
+	if (!c)
+		return ;
 	len = ft_strlen(c);
 	while (len > INT_MAX)
 	{

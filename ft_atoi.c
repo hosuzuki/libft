@@ -6,7 +6,7 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:48 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/11/13 22:20:37 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/11/14 19:37:16 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,30 +20,7 @@ static int	spaceck(const char c)
 	return (0);
 }
 
-static bool check_overflow(size_t res, int i, int sign)
-{
-	(void)i;
-	if (sign == 1)
-	{
-		if (res > (size_t)(LLONG_MAX / 10))
-			return (true);
-	}
-	else if (sign == -1) 
-	{
-		if (res > (size_t)(LLONG_MIN / 10))
-			return (true);
-	}
-	return (false);
-}
-
-static int overflow_result(int sign)
-{
-	if (sign == 1)
-		return ((int)LLONG_MAX);
-	return ((int)LLONG_MIN);
-}
-
-int ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int		sign;
 	size_t	res;
@@ -58,10 +35,6 @@ int ft_atoi(const char *str)
 		if (str[i++] == '-')
 			sign = -1;
 	while (str[i] >= '0' && str[i] <= '9')
-	{
-		if (check_overflow(res, str[i] - '0', sign))
-			return(overflow_result(sign));
 		res = (res * 10) + (str[i++] - '0');
-	}
 	return ((int)res * sign);
 }

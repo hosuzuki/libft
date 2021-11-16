@@ -6,7 +6,7 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:51 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/11/16 15:19:32 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/11/16 15:25:50 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 
 	i = 0;
 	c = ft_strlen(src);
-	if (dstsize <= 0)
+	if (dstsize == 0)
 		return (c);
 	while (src[i] != '\0' && i + 1 < dstsize)
 	{

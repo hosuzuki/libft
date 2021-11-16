@@ -6,7 +6,7 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:50 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/11/16 11:08:02 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/11/16 12:27:45 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,26 +19,23 @@ static bool	find_words(const char str, char c)
 	return (true);
 }
 
-static void	free(char **res, size_t word)
+static bool	free_all(char **res, size_t word)
 {
 	while (word)
 		free(res[word--]);
 	free(res);
-	return ;
+	return (false);
 }
 
-static size_t count_letters(const char *str, char c, size_t *start)
+static size_t	count_letters(const char *str, char c, size_t *start)
 {
 	size_t	letter;
 
 	letter = 0;
-	if (!find_words(str[*start], c))
+	while (!find_words(str[*start], c) && str[*start] != '\0')
 		(*start)++;
-	else
-	{
-		while (find_words(str[*start + letter], c))
-			letter++;
-	}
+	while (find_words(str[*start + letter], c))
+		letter++;
 	return (letter);
 }
 
@@ -47,21 +44,19 @@ static bool	cut_str(char **res, const char *str, char c)
 	size_t	start;
 	size_t	letter;
 	size_t	word;
-	
+
 	start = 0;
 	word = 0;
 	while (str[start] != '\0')
 	{
-		letter = count_letters(str, c, &start)
-		if (letters > 0);
-			res[word] = ft_substr(str, start, letter);
-		if (!res[word])
+		letter = count_letters(str, c, &start);
+		if (letter > 0)
 		{
-			free(res, word);
-			return (false);
-		}	
-		start += letter;
-		word++;
+			res[word] = ft_substr(str, start, letter);
+			if (!res[word])
+				return (free_all(res, word));
+			start += letter;
+			word++;
 		}
 	}
 	res[word] = NULL;

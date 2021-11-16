@@ -6,7 +6,7 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:48 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/10/26 12:45:51 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/11/14 20:12:39 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ char	*ft_itoa(int n)
 	c = count(n);
 	res = malloc(sizeof(char) * (c + 1));
 	if (res == NULL)
-		return ((char *) NULL);
+		return (NULL);
 	nbr(res, n, &i);
 	res[i] = '\0';
 	return (res);
