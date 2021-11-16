@@ -6,40 +6,11 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:52 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/11/14 07:04:30 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/11/16 17:55:23 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static bool	ft_match(char c, const char *set)
-{
-	size_t	i;
-
-	i = 0;
-	while (set[i])
-		if (set[i++] == c)
-			return (true);
-	return (false);
-}
-
-static char	*ft_trim(const char *s1, size_t len, size_t front)
-{
-	size_t	i;
-	char	*dst;
-
-	i = 0;
-	dst = ft_calloc(sizeof(char), len + 1);
-	if (dst == NULL)
-		return (NULL);
-	while (i < len)
-	{
-		dst[i] = s1[front + i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (dst);
-}
 
 char	*ft_strtrim(char const	*s1, char const	*set)
 {
@@ -53,11 +24,11 @@ char	*ft_strtrim(char const	*s1, char const	*set)
 	front = 0;
 	back = 0;
 	len = ft_strlen(s1);
-	while (ft_match(*(s1 + front), set))
+	while (ft_strchr(set, s1[front]) && front < len)
 		front++;
-	while (ft_match(s1[len - back - 1], set) && back < len - front)
+	while (ft_strchr(set, s1[len - 1 - back]) && back < len - front)
 		back++;
 	len = len - (front + back);
-	dst = ft_trim(s1, len, front);
+	dst = ft_substr(s1, front, len);
 	return (dst);
 }

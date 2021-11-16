@@ -54,6 +54,9 @@ CFLAGS = -Wall -Werror -Wextra
 ARC = ar rc
 RAN = ranlib
 RM = rm -f
+ifdef WITH_BONUS
+OBJ += $(BONUS_OBJ)
+endif
 
 $(NAME): $(OBJ)
 	$(ARC) $(NAME) $?
@@ -64,9 +67,8 @@ all: $(NAME)
 .c.o :
 	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
-bonus: $(OBJ) $(BONUS_OBJ)
-	$(ARC) $(NAME) $?
-	$(RAN) $(NAME)
+bonus:
+	@make WITH_BONUS=1
 
 clean:
 	$(RM) $(OBJ) $(BONUS_OBJ)
