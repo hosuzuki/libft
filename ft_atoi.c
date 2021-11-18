@@ -6,18 +6,18 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:48 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/11/14 19:37:16 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/11/19 06:47:54 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	spaceck(const char c)
+static bool	check_space(const char c)
 {
 	if (c == '\n' || c == '\t' || c == '\v'
 		|| c == '\f' || c == '\r' || c == ' ')
-		return (1);
-	return (0);
+		return (true);
+	return (false);
 }
 
 int	ft_atoi(const char *str)
@@ -29,7 +29,7 @@ int	ft_atoi(const char *str)
 	res = 0;
 	sign = 1;
 	i = 0;
-	while (spaceck(str[i]))
+	while (check_space(str[i]))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 		if (str[i++] == '-')
