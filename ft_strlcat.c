@@ -6,7 +6,7 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:51 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/11/18 18:01:02 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/11/19 16:25:13 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@ static size_t	dst_length(char *dst, size_t dstsize)
 	i = 0;
 	while (i < dstsize)
 	{
-		if (!*dst)
+		if (!dst[i])
 			break ;
 		i++;
-		dst++;
 	}
 	return (i);
 }

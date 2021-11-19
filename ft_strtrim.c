@@ -6,13 +6,13 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:52 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/11/16 17:55:23 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/11/19 17:10:32 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const	*s1, char const	*set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	front;
 	size_t	back;

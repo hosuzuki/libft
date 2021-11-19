@@ -6,11 +6,25 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:52 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/11/16 18:14:01 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/11/19 17:42:28 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static size_t	get_s_length(char *src)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < SIZE_MAX - 1)
+	{
+		if (!src[i])
+			break ;
+		i++;
+	}
+	return (i);
+}
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -19,8 +33,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*str;
 
 	i = 0;
-	s_length = ft_strlen(s);
-	if (!s || s_length < start || len == 0)
+	s_length = get_s_length((char *)s);
+	if (!s)
+		return (NULL);
+	if (start >= s_length || len == 0)
 		return (ft_strdup(""));
 	else if (len > s_length - start)
 		len = s_length - start;

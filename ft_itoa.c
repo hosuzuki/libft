@@ -6,7 +6,7 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:48 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/11/16 19:48:24 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/11/19 22:38:38 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,22 +32,22 @@ static int	count(int n)
 	return (i);
 }
 
-static void	nbr(char *res, int n, int *i)
+static void	to_alpha(char *res, int n, int *i)
 {
 	if (n == -2147483648)
 	{
-		nbr(res, n / 10, i);
+		to_alpha(res, n / 10, i);
 		res[(*i)++] = '8';
 	}
 	else if (n < 0)
 	{
 		res[(*i)++] = '-';
-		nbr(res, -n, i);
+		to_alpha(res, -n, i);
 	}
 	else if (n > 9)
 	{
-		nbr(res, n / 10, i);
-		nbr(res, n % 10, i);
+		to_alpha(res, n / 10, i);
+		to_alpha(res, n % 10, i);
 	}
 	else
 		res[(*i)++] = '0' + n;
@@ -64,7 +64,7 @@ char	*ft_itoa(int n)
 	res = ft_calloc(c + 1, sizeof(char));
 	if (!res)
 		return (NULL);
-	nbr(res, n, &i);
+	to_alpha(res, n, &i);
 	res[i] = '\0';
 	return (res);
 }
