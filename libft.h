@@ -6,7 +6,7 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:52 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/11/04 17:40:59 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/11/19 10:28:42 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <string.h>
 # include <limits.h>
 # include <stdbool.h>
+# include <errno.h>
 
 int				ft_isalpha(int c);
 int				ft_isdigit(int c);
