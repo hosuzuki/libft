@@ -6,7 +6,7 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:51 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/11/19 16:25:13 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/11/23 12:32:07 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	if (dstsize > len1 + len2)
 		ft_strlcpy(dst + len1, src, len2 + 1);
 	else
-	{
 		ft_strlcpy(dst + len1, src, dstsize - len1);
-		dst[dstsize] = '\0';
-	}
 	return (len1 + len2);
 }
