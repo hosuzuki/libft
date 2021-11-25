@@ -6,18 +6,18 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:48 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/11/19 22:38:38 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/11/25 10:13:18 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count(int n)
+static int	count_digits(int n)
 {
 	int	i;
 
 	i = 1;
-	if (n == -2147483648)
+	if (n == INT_MIN)
 		return (11);
 	if (n < 0)
 	{
@@ -34,7 +34,7 @@ static int	count(int n)
 
 static void	to_alpha(char *res, int n, int *i)
 {
-	if (n == -2147483648)
+	if (n == INT_MIN)
 	{
 		to_alpha(res, n / 10, i);
 		res[(*i)++] = '8';
@@ -55,15 +55,15 @@ static void	to_alpha(char *res, int n, int *i)
 
 char	*ft_itoa(int n)
 {
-	int		i;
-	int		c;
+	int		digits;
 	char	*res;
+	int		i;
 
-	i = 0;
-	c = count(n);
-	res = ft_calloc(c + 1, sizeof(char));
+	digits = count_digits(n);
+	res = ft_calloc(digits + 1, sizeof(char));
 	if (!res)
 		return (NULL);
+	i = 0;
 	to_alpha(res, n, &i);
 	res[i] = '\0';
 	return (res);

@@ -6,7 +6,7 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:52 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/11/19 17:10:32 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/11/25 10:08:26 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	len;
 	char	*dst;
 
-	if (!s1 || !set)
+	if (!s1)
 		return (NULL);
+	if (!set)
+		return (ft_strdup(s1));
 	front = 0;
 	back = 0;
 	len = ft_strlen(s1);

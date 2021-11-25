@@ -6,7 +6,7 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:48 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/11/19 11:23:30 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/11/25 10:00:17 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,7 @@ void	*ft_calloc(size_t count, size_t size)
 	}
 	res = malloc(sum);
 	if (!res)
-	{
-		errno = ENOMEM;
 		return (NULL);
-	}
 	ft_bzero(res, sum);
 	return (res);
 }

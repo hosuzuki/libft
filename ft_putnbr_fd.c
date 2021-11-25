@@ -6,7 +6,7 @@
 /*   By: hokutosuzuki <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 18:03:50 by hokutosuz         #+#    #+#             */
-/*   Updated: 2021/10/16 18:24:48 by hokutosuz        ###   ########.fr       */
+/*   Updated: 2021/11/25 09:44:28 by hokutosuz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putnbr_fd(int i, int fd)
 {
-	if (i == -2147483648)
+	if (i == INT_MIN)
 	{
 		ft_putnbr_fd(i / 10, fd);
 		ft_putchar_fd('8', fd);
