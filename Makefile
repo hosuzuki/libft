@@ -1,6 +1,6 @@
 SHELL = /bin/sh
 NAME = libft.a
-SRC = := \
+SRCS = \
 	srcs/ft_isalpha.c \
 	srcs/ft_isdigit.c \
 	srcs/ft_isalnum.c \
@@ -36,7 +36,7 @@ SRC = := \
 	srcs/ft_putendl_fd.c \
 	srcs/ft_putnbr_fd.c
 
-BONUS = := \
+BONUS = \
 	srcs/ft_lstnew.c \
 	srcs/ft_lstadd_front.c \
 	srcs/ft_lstsize.c \
@@ -47,20 +47,23 @@ BONUS = := \
 	srcs/ft_lstiter.c \
 	srcs/ft_lstmap.c
 
-INC = includes/libft.h
+INC = includes/
 
-OBJDIR = objs/
+OBJDIR	= objs/
+OBJS = $(patsubst srcs/%.c, $(OBJDIR)%.o, $(SRCS))
+BONUS_OBJS = $(patsubst srcs/%.c, $(OBJDIR)%.o, $(BONUS))
+DEPS	= $(OBJS:.o=.d)
 
-OBJ = $(SRC:.c=.o)
-BONUS_OBJ = $(BONUS:.c=.o)
-CC = gcc
-CFLAGS = -Wall -Werror -Wextra
-ARC = ar rc
-RAN = ranlib
-RM = rm -f
+CC		= gcc
+CFLAGS	= -Wall -Werror -Wextra
+CFLAGS	+= -MMD -MP
+CFLAGS	+= $(addprefix -I,$(INC))
+ARC		= ar rc
+RAN		= ranlib
+RM		= rm -f
 
 ifdef WITH_BONUS
-OBJ += $(BONUS_OBJ)
+SRCS += $(BONUS)
 endif
 
 GR	= \033[32;1m
@@ -73,14 +76,17 @@ RC	= \033[0m
 
 all: $(NAME)
 
-$(NAME): $(OBJDIR) $(OBJ)
-	$(ARC) $(NAME) $?
+$(NAME) : $(OBJDIR) $(OBJS)
+	@printf "\n$(GR)=== Compiled [$(CC) $(CFLAGS)] ==="
+	@printf "\n--- $(notdir $(SRCS))$(RC)\n"
+	$(ARC) $(NAME) $(OBJS)
 	$(RAN) $(NAME)
+	@printf "$(YE)&&& Linked [$(CC)] &&&\n--- $(NAME)$(RC)\n"
 
 $(OBJDIR):
 	@mkdir -p $(OBJDIR)
 
-.c.o :
+$(OBJDIR)%.o: srcs/%.c
 	@$(CC) $(CFLAGS) -c -o $@ $<
 	@printf "$(GR)+$(RC)"
 
@@ -88,7 +94,7 @@ bonus:
 	@make WITH_BONUS=1
 
 clean:
-	$(RM) $(OBJDIR)
+	$(RM) -r $(OBJDIR)
 
 fclean: clean
 	@printf "$(RE)--- Removing $(NAME)$(RC)\n"
@@ -97,3 +103,5 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re bonus
+
+-include $(DEPS)
