@@ -1,51 +1,55 @@
 SHELL = /bin/sh
-
 NAME = libft.a
+SRC = := \
+	srcs/ft_isalpha.c \
+	srcs/ft_isdigit.c \
+	srcs/ft_isalnum.c \
+	srcs/ft_isascii.c \
+	srcs/ft_isprint.c \
+	srcs/ft_strlen.c \
+	srcs/ft_memset.c \
+	srcs/ft_bzero.c \
+	srcs/ft_memcpy.c \
+	srcs/ft_memmove.c \
+	srcs/ft_strlcpy.c \
+	srcs/ft_strlcat.c \
+	srcs/ft_toupper.c \
+	srcs/ft_tolower.c \
+	srcs/ft_strchr.c \
+	srcs/ft_strrchr.c \
+	srcs/ft_strncmp.c \
+	srcs/ft_memchr.c \
+	srcs/ft_memcmp.c \
+	srcs/ft_strnstr.c \
+	srcs/ft_atoi.c \
+	srcs/ft_calloc.c \
+	srcs/ft_strdup.c \
+	srcs/ft_substr.c \
+	srcs/ft_strjoin.c \
+	srcs/ft_strtrim.c \
+	srcs/ft_split.c \
+	srcs/ft_itoa.c \
+	srcs/ft_strmapi.c \
+	srcs/ft_striteri.c \
+	srcs/ft_putchar_fd.c \
+	srcs/ft_putstr_fd.c \
+	srcs/ft_putendl_fd.c \
+	srcs/ft_putnbr_fd.c
 
-SRC = ft_isalpha.c \
-	ft_isdigit.c \
-	ft_isalnum.c \
-	ft_isascii.c \
-	ft_isprint.c \
-	ft_strlen.c \
-	ft_memset.c \
-	ft_bzero.c \
-	ft_memcpy.c \
-	ft_memmove.c \
-	ft_strlcpy.c \
-	ft_strlcat.c \
-	ft_toupper.c \
-	ft_tolower.c \
-	ft_strchr.c \
-	ft_strrchr.c \
-	ft_strncmp.c \
-	ft_memchr.c \
-	ft_memcmp.c \
-	ft_strnstr.c \
-	ft_atoi.c \
-	ft_calloc.c \
-	ft_strdup.c \
-	ft_substr.c \
-	ft_strjoin.c \
-	ft_strtrim.c \
-	ft_split.c \
-	ft_itoa.c \
-	ft_strmapi.c \
-	ft_striteri.c \
-	ft_putchar_fd.c \
-	ft_putstr_fd.c \
-	ft_putendl_fd.c \
-	ft_putnbr_fd.c
+BONUS = := \
+	srcs/ft_lstnew.c \
+	srcs/ft_lstadd_front.c \
+	srcs/ft_lstsize.c \
+	srcs/ft_lstlast.c \
+	srcs/ft_lstadd_back.c \
+	srcs/ft_lstdelone.c \
+	srcs/ft_lstclear.c \
+	srcs/ft_lstiter.c \
+	srcs/ft_lstmap.c
 
-BONUS = ft_lstnew.c \
-	ft_lstadd_front.c \
-	ft_lstsize.c \
-	ft_lstlast.c \
-	ft_lstadd_back.c \
-	ft_lstdelone.c \
-	ft_lstclear.c \
-	ft_lstiter.c \
-	ft_lstmap.c
+INC = includes/libft.h
+
+OBJDIR = objs/
 
 OBJ = $(SRC:.c=.o)
 BONUS_OBJ = $(BONUS:.c=.o)
@@ -54,26 +58,40 @@ CFLAGS = -Wall -Werror -Wextra
 ARC = ar rc
 RAN = ranlib
 RM = rm -f
+
 ifdef WITH_BONUS
 OBJ += $(BONUS_OBJ)
 endif
 
-$(NAME): $(OBJ)
-	$(ARC) $(NAME) $?
-	$(RAN) $(NAME)
+GR	= \033[32;1m
+RE	= \033[31;1m
+YE	= \033[33;1m
+CY	= \033[36;1m
+RC	= \033[0m
+
+# **************************************************************************** #
 
 all: $(NAME)
 
+$(NAME): $(OBJDIR) $(OBJ)
+	$(ARC) $(NAME) $?
+	$(RAN) $(NAME)
+
+$(OBJDIR):
+	@mkdir -p $(OBJDIR)
+
 .c.o :
-	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+	@$(CC) $(CFLAGS) -c -o $@ $<
+	@printf "$(GR)+$(RC)"
 
 bonus:
 	@make WITH_BONUS=1
 
 clean:
-	$(RM) $(OBJ) $(BONUS_OBJ)
+	$(RM) $(OBJDIR)
 
 fclean: clean
+	@printf "$(RE)--- Removing $(NAME)$(RC)\n"
 	$(RM) $(NAME)
 
 re: fclean all
