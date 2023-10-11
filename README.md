@@ -1,13 +1,13 @@
-# 🌕 libft - library at forty-two
+# libft - library at forty-two
 <br>
 
-## 🌖 What is libft ?
+## 🌕 What is libft ?
 
 Libft is an individual project at [42 Tokyo][1] to re-create some standard C library functions,  which will be very useful to get familiar with memory allocation and data structures.
 <br><br>
 
 
-## 🌖 What's in it ?
+## 🌕 What's in it ?
 
 There are 4 types of code:
 
@@ -18,16 +18,16 @@ There are 4 types of code:
 <br><br>
 
 
-## 🌖 Usage
+## 🌕 Usage
 
-### 🌗 Requirements
+### 🌖 Requirements
 
 The library is written in C language and thus needs the **`gcc` compiler** and some standard **C libraries** to run.
 <br><br>
 
-### 🌗 Instructions
+### 🌖 Instructions
 
-#### 🌘 1. Clone the repository
+#### 🌗 1. Clone the repository
 ```shell
 git clone git@github.com:hosuzuki/libft.git
 ```
@@ -37,7 +37,7 @@ And them, move to the cloned directory.
 cd libft
 ```
 
-#### 🌘 2. Compile the library
+#### 🌗 2. Compile the library
 
 The makefile compiles all files from the ``srcs/`` folders and saves the object files to the ``objs/`` folders. <br>
 It then generates the output file ``libft.a``.
@@ -49,7 +49,7 @@ make        //compiles Libc and Additional fucntions
 make bonus	//compiles all files
 ```
 
-#### 🌘 3. Using it in your code
+#### 🌗 3. Using it in your code
 
 To use the library functions in your code, simply include its header:
 
@@ -64,9 +64,9 @@ and, when compiling your code, add the required flags:
 ```
 <br><br>
 
-## 🌖 List of functions
+## 🌕 List of functions
 
-### 🌗 Libc functions
+### 🌖 Libc functions
 
 | Name | Description |
 | :------ | :--------- |
@@ -96,7 +96,7 @@ and, when compiling your code, add the required flags:
 
 <br><br>
 
-### 🌗 Additional functions
+### 🌖 Additional functions
 
 | Name | Description |
 | :------ | :--------- |
@@ -113,7 +113,7 @@ and, when compiling your code, add the required flags:
 
 <br><br>
 
-### 🌗 Bonus Functions
+### 🌖 Bonus Functions
 | Name | Description |
 | :------ | :--------- |
 | [ft_lstnew](srcs/ft_lstnew.c) | Creates new node allocating with ``malloc`` |
@@ -136,7 +136,7 @@ typedef	struct	s_list
 ```
 <br><br>
 
-### 🌗 Personal Functions
+### 🌖 Personal Functions
 
 | Name | Description |
 | :------: | :---------: |
