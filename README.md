@@ -1,15 +1,24 @@
-<h1 align="center">
-	42cursus' libft
+<h1>
+ libft - library at forty-two
 </h1>
 
 
+### 🌕 What is libft ?
 
-<h1 align="center"> Libft </h1>
-<h4 align="center"> 42's famous very first project - 42 Tokyo (2021 WINTER) </h4>
+Libft is an individual project at [42 Tokyo][1] to re-create some standard C library functions,  which will be very useful to get familiar with memory allocation and data structures.
 
-![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+### 🌕 What's in it ?
 
-<!-- ABOUT -->
-<h2 id="about"> ⭐  About</h2>
-<br>
-This project aims to code a C library regrouping usual functions.
+There are 4 types of code:
+
+1.  **Libc Functions:** Some of the standard C functions
+2.  **Additional functions:** Functions that will be useful for later projects
+3.  **Bonus Functions:** Functions that will be useful for linked list manipulation
+4.  **Personal Functions:** Functions I believe will be useful later.
+
+
+
+
+
+
+[1]: https://42tokyo.jp/
