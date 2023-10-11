@@ -70,11 +70,11 @@ and, when compiling your code, add the required flags:
 
 | Name | Description |
 | :------ | :--------- |
-| ``ft_atoi`` | Reads a String, and, after ignoring spaces with ``ft_isspace``, saves the string into an integer |
+| ``ft_atoi`` | Reads a String, and saves the string into an integer |
 | ``ft_bzero`` | Writes ``n`` zeroes to the string ``s`` |
 | ``ft_calloc`` | Reserves ``x`` blocks of ``y`` bits of memory |
 | ``ft_isalnum`` | Returns ``1`` if the input is a number or a letter in the ``ASCII`` table |
-| ``ft_isalpha`` | Returns ``1`` if the input is a letter in the ``ASCII`` table |
+|  [`ft_isalpha`](libft/srcs/ft_isalpha.c) | Returns ``1`` if the input is a letter in the ``ASCII`` table |
 | ``ft_isascii`` | Returns whether or not a value belongs to the ``ASCII`` table |
 | ``ft_isdigit`` | Returns ``1`` if the input is a number in the ``ASCII`` table |
 | ``ft_isprint`` | Returns whether a character is printable |
