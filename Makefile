@@ -49,6 +49,8 @@ BONUS = \
 
 INC = includes/
 
+# **************************************************************************** #
+
 OBJDIR	= objs/
 OBJS = $(patsubst srcs/%.c, $(OBJDIR)%.o, $(SRCS))
 DEPS	= $(OBJS:.o=.d)
