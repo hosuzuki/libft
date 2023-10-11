@@ -70,18 +70,18 @@ and, when compiling your code, add the required flags:
 
 | Name | Description |
 | :------ | :--------- |
-| ``ft_atoi`` | Reads a String, and saves the string into an integer |
-| ``ft_bzero`` | Writes ``n`` zeroes to the string ``s`` |
-| ``ft_calloc`` | Reserves ``x`` blocks of ``y`` bits of memory |
-| ``ft_isalnum`` | Returns ``1`` if the input is a number or a letter in the ``ASCII`` table |
+| [ft_atoi`` | Reads a String, and saves the string into an integer |
+| [ft_bzero`` | Writes ``n`` zeroes to the string ``s`` |
+| [ft_calloc`` | Reserves ``x`` blocks of ``y`` bits of memory |
+| [ft_isalnum`` | Returns ``1`` if the input is a number or a letter in the ``ASCII`` table |
 |  [ft_isalpha](srcs/ft_isalpha.c) | Returns ``1`` if the input is a letter in the ``ASCII`` table |
-| ``ft_isascii`` | Returns whether or not a value belongs to the ``ASCII`` table |
-| ``ft_isdigit`` | Returns ``1`` if the input is a number in the ``ASCII`` table |
-| ``ft_isprint`` | Returns whether a character is printable |
-| ``ft_memccpy`` | Copies from one memory point to another, until the specified character is copied or until ``n`` bytes are copied |
-| ``ft_memchr`` | Looks for a matching character inside a part of the memory |
-| ``ft_memcmp`` | Compares two parts of memory, returning ``0`` if they're the same, or else a nonzero value |
-| ``ft_memcpy`` | Copies from one part of memory to another, ignoring possible overlaps |
+| [ft_isascii`` | Returns whether or not a value belongs to the ``ASCII`` table |
+| [ft_isdigit`` | Returns ``1`` if the input is a number in the ``ASCII`` table |
+| [ft_isprint`` | Returns whether a character is printable |
+| [ft_memccpy`` | Copies from one memory point to another, until the specified character is copied or until ``n`` bytes are copied |
+| [ft_memchr`` | Looks for a matching character inside a part of the memory |
+| [ft_memcmp`` | Compares two parts of memory, returning ``0`` if they're the same, or else a nonzero value |
+| [ft_memcpy`` | Copies from one part of memory to another, ignoring possible overlaps |
 | ``ft_memmove`` | Copies from one part of memory to another, preventing possible overlaps |
 | ``ft_memset`` | Assigns a character ``n`` times to a part of the memory |
 | ``ft_strchr`` | Looks for a specific character inside a given string |
