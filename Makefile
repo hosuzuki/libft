@@ -51,7 +51,6 @@ INC = includes/
 
 OBJDIR	= objs/
 OBJS = $(patsubst srcs/%.c, $(OBJDIR)%.o, $(SRCS))
-BONUS_OBJS = $(patsubst srcs/%.c, $(OBJDIR)%.o, $(BONUS))
 DEPS	= $(OBJS:.o=.d)
 
 CC		= gcc
@@ -77,7 +76,7 @@ RC	= \033[0m
 all: $(NAME)
 
 $(NAME) : $(OBJDIR) $(OBJS)
-	@printf "\n$(GR)=== Compiled [$(CC) $(CFLAGS)] ==="
+	@printf "\n$(GR)=== Compiled ==="
 	@printf "\n--- $(notdir $(SRCS))$(RC)\n"
 	$(ARC) $(NAME) $(OBJS)
 	$(RAN) $(NAME)
@@ -85,19 +84,20 @@ $(NAME) : $(OBJDIR) $(OBJS)
 
 $(OBJDIR):
 	@mkdir -p $(OBJDIR)
+	@printf "$(GR)=== Compiling ... [$(CC) $(CFLAGS)] ===$(RC)\n"
 
 $(OBJDIR)%.o: srcs/%.c
 	@$(CC) $(CFLAGS) -c -o $@ $<
 	@printf "$(GR)+$(RC)"
 
 bonus:
-	@make WITH_BONUS=1
+	@make --no-print-directory WITH_BONUS=1
 
 clean:
 	$(RM) -r $(OBJDIR)
 
 fclean: clean
-	@printf "$(RE)--- Removing $(NAME)$(RC)\n"
+	@printf "$(RE)=== Removing $(NAME) ===$(RC)\n"
 	$(RM) $(NAME)
 
 re: fclean all
