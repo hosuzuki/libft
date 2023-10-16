@@ -82,7 +82,7 @@ $(NAME) : $(OBJDIR) $(OBJS)
 	@printf "\n--- $(notdir $(SRCS))$(RC)\n"
 	$(ARC) $(NAME) $(OBJS)
 	$(RAN) $(NAME)
-	@printf "$(YE)&&& Linked [$(CC)] &&&\n--- $(NAME)$(RC)\n"
+	@printf "$(YE)=== Linked [$(CC)] ===\n--- $(NAME)$(RC)\n"
 
 $(OBJDIR):
 	@mkdir -p $(OBJDIR)
