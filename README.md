@@ -140,7 +140,7 @@ typedef	struct	s_list
 
 | Name | Description |
 | :------: | :---------: |
-<br><br>
+| [ft_putnbr_base](srcs/ft_putnbr_base.c) | Prints the converted number based on the specified base |
 
 
 [1]: https://42tokyo.jp/
