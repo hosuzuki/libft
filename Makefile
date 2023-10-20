@@ -34,7 +34,8 @@ SRCS = \
 	srcs/ft_putchar_fd.c \
 	srcs/ft_putstr_fd.c \
 	srcs/ft_putendl_fd.c \
-	srcs/ft_putnbr_fd.c
+	srcs/ft_putnbr_fd.c \
+	srcs/ft_putnbr_base.c
 
 BONUS = \
 	srcs/ft_lstnew.c \
