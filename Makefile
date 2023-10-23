@@ -1,5 +1,6 @@
 SHELL = /bin/sh
 NAME = libft.a
+# Libc functions
 SRCS = \
 	srcs/ft_isalpha.c \
 	srcs/ft_isdigit.c \
@@ -23,7 +24,10 @@ SRCS = \
 	srcs/ft_strnstr.c \
 	srcs/ft_atoi.c \
 	srcs/ft_calloc.c \
-	srcs/ft_strdup.c \
+	srcs/ft_strdup.c 
+
+# Additional functions
+SRCS += \
 	srcs/ft_substr.c \
 	srcs/ft_strjoin.c \
 	srcs/ft_strtrim.c \
@@ -34,9 +38,9 @@ SRCS = \
 	srcs/ft_putchar_fd.c \
 	srcs/ft_putstr_fd.c \
 	srcs/ft_putendl_fd.c \
-	srcs/ft_putnbr_fd.c \
-	srcs/ft_putnbr_base.c
+	srcs/ft_putnbr_fd.c 
 
+# Bonus Functions
 BONUS = \
 	srcs/ft_lstnew.c \
 	srcs/ft_lstadd_front.c \
@@ -47,6 +51,11 @@ BONUS = \
 	srcs/ft_lstclear.c \
 	srcs/ft_lstiter.c \
 	srcs/ft_lstmap.c
+
+# Personal Functions
+SRCS += \
+	srcs/ft_putnbr_base.c \
+	srcs/ft_listnewfd.c 
 
 INC = includes/
 

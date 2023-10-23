@@ -141,6 +141,6 @@ typedef	struct	s_list
 | Name | Description |
 | :------: | :---------: |
 | [ft_putnbr_base](srcs/ft_putnbr_base.c) | Prints the converted number based on the specified base |
-
+| [ft_lstnewfd](srcs/ft_lstnewfd.c) | Creates new node allocating with ``malloc``, includes fd data |
 
 [1]: https://42tokyo.jp/
