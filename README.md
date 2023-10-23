@@ -142,5 +142,6 @@ typedef	struct	s_list
 | :------ | :--------- |
 | [ft_putnbr_base](srcs/ft_putnbr_base.c) | Prints the converted number based on the specified base |
 | [ft_lstnewfd](srcs/ft_lstnewfd.c) | Creates new node allocating with ``malloc``, includes fd data |
+| [ft_strndup](srcs/ft_strndup.c) | Saves enough space and duplicates a string up to the n-th character |
 
 [1]: https://42tokyo.jp/

@@ -55,7 +55,8 @@ BONUS = \
 # Personal Functions
 SRCS += \
 	srcs/ft_putnbr_base.c \
-	srcs/ft_listnewfd.c 
+	srcs/ft_listnewfd.c \
+	srcs/ft_strndup.c
 
 INC = includes/
 
